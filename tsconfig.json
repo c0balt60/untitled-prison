@@ -1,0 +1,19 @@
+{
+	"extends": "@isentinel/tsconfig/roblox",
+	"compilerOptions": {
+		"typeRoots": ["node_modules/@rbxts", "node_modules/@flamework"],
+		"exactOptionalPropertyTypes": false,
+		"plugins": [
+			{
+				"name": "ts-plugin-sort-import-suggestions",
+				"moveDownPatterns": ["@rbxts"]
+			},
+			{
+				"transform": "rbxts-transformer-flamework",
+				"obfuscation": false
+			}
+		]
+	}
+	//"include": ["src/**/*", "/**/*.ts", "**/*/*.tsx"],
+	//"exclude": ["node_modules", "out", "/**/*./"]
+}

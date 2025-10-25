@@ -1,0 +1,82 @@
+{
+	"name": "untitled-fps-survival",
+	"version": "1.0.0",
+	"description": "Untitled first person scavenger game",
+	"keywords": [
+		"roblox",
+		"typescript"
+	],
+	"license": "ISC",
+	"author": "c0balt60",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"build": "rbxtsc",
+		"lint": "eslint",
+		"lint:fix": "eslint --fix",
+		"prepare": "husky",
+		"watch": "rbxtsc -w"
+	},
+	"simple-git-hooks": {
+		"pre-commit": "pnpm lint-staged"
+	},
+	"lint-staged": {
+		"*": "eslint --fix"
+	},
+	"dependencies": {
+		"@flamework/components": "catalog:",
+		"@flamework/core": "catalog:",
+		"@flamework/networking": "catalog:",
+		"@rbxts/cmdr": "catalog:",
+		"@rbxts/flamework-binary-serializer": "catalog:",
+		"@rbxts/janitor": "catalog:",
+		"@rbxts/lapis": "catalog:",
+		"@rbxts/lapis-mockdatastore": "catalog:",
+		"@rbxts/log": "catalog:",
+		"@rbxts/luau-polyfill": "catalog:",
+		"@rbxts/make": "catalog:",
+		"@rbxts/object-utils": "catalog:",
+		"@rbxts/pretty-react-hooks": "catalog:",
+		"@rbxts/rbx-better-signal": "catalog:",
+		"@rbxts/rbx-debug": "catalog:",
+		"@rbxts/react": "catalog:",
+		"@rbxts/react-reflex": "catalog:",
+		"@rbxts/react-roblox": "catalog:",
+		"@rbxts/reflex": "catalog:",
+		"@rbxts/remap": "catalog:",
+		"@rbxts/ripple": "catalog:",
+		"@rbxts/services": "catalog:",
+		"@rbxts/sift": "catalog:",
+		"@rbxts/t": "catalog:",
+		"@rbxts/ui-labs": "catalog:",
+		"@rbxts/ui-scaler": "catalog:",
+		"@rbxts/validate-tree": "catalog:",
+		"rbxts-transform-debug": "catalog:",
+		"rbxts-transform-env": "catalog:"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "catalog:",
+		"@commitlint/config-conventional": "catalog:",
+		"@commitlint/types": "catalog:",
+		"@cspell/eslint-plugin": "catalog:",
+		"@eslint-react/eslint-plugin": "catalog:",
+		"@isentinel/eslint-config": "catalog:",
+		"@isentinel/tsconfig": "catalog:",
+		"@rbxts/compiler-types": "catalog:",
+		"@rbxts/types": "catalog:",
+		"@typescript-eslint/eslint-plugin": "catalog:",
+		"@typescript-eslint/parser": "catalog:",
+		"eslint": "catalog:",
+		"eslint-plugin-pnpm": "catalog:",
+		"eslint-plugin-react-roblox-hooks": "catalog:",
+		"husky": "catalog:",
+		"jiti": "catalog:",
+		"lint-staged": "catalog:",
+		"prettier": "catalog:",
+		"rbxts-transformer-flamework": "catalog:",
+		"roblox-ts": "catalog:",
+		"ts-plugin-sort-import-suggestions": "catalog:",
+		"typescript": "catalog:"
+	},
+	"packageManager": "pnpm@10.19.0"
+}

@@ -1,0 +1,17 @@
+/node_modules
+/out
+/include
+*.tsbuildinfo
+flamework.build
+.eslintcache
+
+# Misc
+.DS_Store
+
+/dist
+sourcemap.json
+*.rbxl.lock
+*.rbxl
+*.rbxlx
+
+.env
