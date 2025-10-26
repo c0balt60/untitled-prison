@@ -1,2 +1,3 @@
+[Options]
 ts_mode = true
 package_manager = "pnpm"

@@ -1,5 +1,5 @@
 {
-	"name": "flamework-game",
+	"name": "untitled-prison-game",
 	"globIgnorePaths": ["**/package.json", "**/tsconfig.json"],
 	"tree": {
 		"$className": "DataModel",
@@ -13,6 +13,9 @@
 			"$className": "ReplicatedStorage",
 			"TS": {
 				"$path": "out/shared"
+			},
+			"TS-types": {
+				"$path": "out/types"
 			},
 			"rbxts_include": {
 				"$path": "include",

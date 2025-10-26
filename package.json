@@ -1,11 +1,8 @@
 {
-	"name": "untitled-fps-survival",
+	"name": "untitled-prison-game",
 	"version": "1.0.0",
-	"description": "Untitled first person scavenger game",
-	"keywords": [
-		"roblox",
-		"typescript"
-	],
+	"description": "Untitled generic prison game",
+	"keywords": ["roblox", "typescript"],
 	"license": "ISC",
 	"author": "c0balt60",
 	"type": "module",
