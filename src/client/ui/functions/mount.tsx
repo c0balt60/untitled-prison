@@ -3,7 +3,7 @@ import { ReflexProvider } from "@rbxts/react-reflex";
 import type { Root } from "@rbxts/react-roblox";
 import { createPortal, createRoot } from "@rbxts/react-roblox";
 
-import { PlayerGui } from "client/constants";
+import { PlayerGui } from "client/constants/player-gui";
 import { store } from "client/store";
 
 import type { RemProviderProps } from "../providers/rem-provider";

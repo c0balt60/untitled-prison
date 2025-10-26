@@ -10,7 +10,7 @@ export interface TextLabelProps extends FrameProps<TextLabel> {
 	 * The font of the text, defaults to the primary font specified by the
 	 * default theme.
 	 */
-	Font?: BindingValue<Enum.Font> | undefined;
+	Font?: BindingValue<Enum.Font>;
 	/**
 	 * The default properties of a `TextLabel` component, minus the ones
 	 * specified in the TextProps.
@@ -24,9 +24,9 @@ export interface TextLabelProps extends FrameProps<TextLabel> {
 	/** The text to display. */
 	Text: BindingValue<string>;
 	/** The color of the text. */
-	TextColor?: BindingValue<Color3> | undefined;
+	TextColor?: BindingValue<Color3>;
 	/** The size of the text. */
-	TextSize?: BindingValue<number> | undefined;
+	TextSize?: BindingValue<number>;
 }
 
 /**

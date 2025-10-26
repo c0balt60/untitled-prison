@@ -1,3 +1,4 @@
+/* eslint-disable flawless/naming-convention -- Always allow catppuccin naming style */
 import Object from "@rbxts/object-utils";
 
 /**

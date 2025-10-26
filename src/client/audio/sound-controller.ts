@@ -4,7 +4,7 @@ import type { Logger } from "@rbxts/log";
 import { Inspect } from "@rbxts/rbx-debug";
 import { SoundService, TweenService } from "@rbxts/services";
 
-import { USER_ID } from "client/constants";
+import { USER_ID } from "client/constants/default";
 import { store } from "client/store";
 import SoundSystem from "shared/modules/3d-sound-system";
 import Make from "shared/modules/make";

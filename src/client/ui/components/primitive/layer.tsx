@@ -1,7 +1,7 @@
 import React from "@rbxts/react";
 
 import { $NODE_ENV } from "rbxts-transform-env";
-import { IS_EDIT } from "shared/constants";
+import { IS_EDIT } from "shared/constants/game";
 
 import { UltraWideContainer } from "../ultra-wide-container";
 import { Group } from "./group";
@@ -14,7 +14,7 @@ export interface LayerProps extends React.PropsWithChildren {
 	 */
 	ClampUltraWide?: boolean;
 	/** The display order of the layer. */
-	DisplayOrder?: number | undefined;
+	DisplayOrder?: number;
 }
 
 /**

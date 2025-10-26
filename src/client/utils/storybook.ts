@@ -9,10 +9,20 @@
  * @param groupRoots - True, UI Labs will create subfolders for every entry in
  *   storyRoots @default true.
  */
-export function Storybook(name: string, storyRoots?: Array<Instance>, groupRoots = true) {
+interface StoryBook {
+	groupRoots: boolean;
+	name: string;
+	storyRoots?: Array<Instance>;
+}
+// eslint-disable-next-line flawless/naming-convention -- Always retain normal name
+export function Storybook(
+	name: string,
+	storyRoots?: Array<Instance>,
+	groupRoots = true,
+): StoryBook {
 	return {
 		name,
 		groupRoots,
-		storyRoots: storyRoots || getfenv(2).script.Parent?.GetChildren(),
+		storyRoots: storyRoots ?? getfenv(2).script.Parent?.GetChildren(),
 	};
 }
