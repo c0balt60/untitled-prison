@@ -1,7 +1,6 @@
-# Flamework Template
+# Untitled Prison Game
 
-👋 Hey! This is a pre-configured template you can use for your projects that use
-[Flamework](https://fireboltofdeath.dev/docs/flamework/).
+Repository for the untitled prison game
 
 ## Usage
 
@@ -11,10 +10,8 @@ stored.
 Then, open a terminal at that directory and run the following commands:
 
 ```console
-npx degit rbxts-flamework/template
-npm i
+pnpm i
+rokit install
 ```
 
-That's it! The template has been installed. For further information on how to
-use Flamework in your project, please see
-[here](https://fireboltofdeath.dev/docs/flamework).
+That's it! The template has been installed.
