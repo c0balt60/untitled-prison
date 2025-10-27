@@ -5,7 +5,7 @@ import Log from "@rbxts/log";
 import { GAME_NAME } from "shared/constants/game";
 import { setupLogger } from "shared/functions/setup-logger";
 
-import { createApp, reactConfig } from "./ui/react-config";
+import { createApp, reactConfig } from "./ui/app/react-config";
 
 function start(): void {
 	reactConfig();

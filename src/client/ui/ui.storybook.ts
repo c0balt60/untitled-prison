@@ -1,7 +1,5 @@
 import React from "@rbxts/react";
 
-import { GAME_NAME } from "shared/constants/game";
-
 interface Storybook {
 	name: string;
 	react?: typeof React;
@@ -9,7 +7,7 @@ interface Storybook {
 }
 
 export = identity<Storybook>({
-	name: GAME_NAME,
+	name: "Main Stories",
 	react: React,
 	storyRoots: [script.Parent],
 });
