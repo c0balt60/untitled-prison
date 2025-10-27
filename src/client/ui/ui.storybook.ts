@@ -7,7 +7,7 @@ interface Storybook {
 }
 
 export = identity<Storybook>({
-	name: "Main Stories",
+	name: "Main interface",
 	react: React,
 	storyRoots: [script.Parent],
 });
