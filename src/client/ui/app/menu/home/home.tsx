@@ -2,7 +2,11 @@ import React from "@rbxts/react";
 
 import { HomeList } from "./home-list";
 
-export function Home(): React.ReactNode {
+interface HomeProps {
+	show?: boolean;
+}
+
+export function Home({ show = true }: Readonly<HomeProps>): React.ReactNode {
 	return (
 		<HomeList
 			items={[
@@ -20,6 +24,7 @@ export function Home(): React.ReactNode {
 				},
 			]}
 			padding={UDim2.fromScale(0, 0.05)}
+			show={show}
 		/>
 	);
 }

@@ -10,7 +10,9 @@ export function App(): React.ReactNode {
 				<Menu />
 			</Layer>
 
-			<Layer />
+			<Layer key="example-layer" />
+
+			<Layer key="example-layer1" />
 		</>
 	);
 }

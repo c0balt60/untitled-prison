@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "@rbxts/react";
 import { setTimeout } from "@rbxts/set-timeout";
 
 import { DelayRender } from "client/ui/components/delay-render";
+import { Button } from "client/ui/components/primitive";
 import { useRem } from "client/ui/hooks";
 
 interface HomeButtonProps {
@@ -14,6 +15,9 @@ interface HomeButtonProps {
 	unmountDelay?: number;
 }
 
+const OFF_POSITION = UDim2.fromScale(0, 1.5);
+const DEFAULT_SIZE = UDim2.fromScale(0.635, 0.2);
+
 export function HomeButton({
 	endPosition,
 	holderColor,
@@ -24,20 +28,28 @@ export function HomeButton({
 }: Readonly<HomeButtonProps>): React.ReactNode {
 	const rem = useRem();
 	const [isVisible, setIsVisible] = useState<boolean>(true);
+	const [isHovered, setIsHovered] = useState<boolean>(false);
 
-	const [popupPosition, popupPositionMotion] = useMotion(
-		UDim2.fromScale(endPosition.X.Scale, 1.25),
-	);
+	const [size, sizeMotion] = useMotion(DEFAULT_SIZE);
+	const [popupPosition, popupPositionMotion] = useMotion(OFF_POSITION);
 
 	useEffect(() => {
 		setIsVisible(!!show);
 	}, [show]);
 
 	useEffect(() => {
+		sizeMotion.spring(isHovered ? new UDim2(0.635, rem(0.4), 0.2, rem(0.4)) : DEFAULT_SIZE, {
+			friction: 12,
+			mass: 1,
+			tension: 400,
+		});
+	});
+
+	useEffect(() => {
 		const delay = show ? mountDelay : unmountDelay;
 
 		return setTimeout((): void => {
-			popupPositionMotion.spring(endPosition, {
+			popupPositionMotion.spring(show ? endPosition : OFF_POSITION, {
 				friction: 10,
 				mass: 0.75,
 				tension: 100,
@@ -46,17 +58,49 @@ export function HomeButton({
 	}, [popupPositionMotion, endPosition, mountDelay, unmountDelay, show]);
 
 	return (
-		<DelayRender ShouldRender={isVisible} UnmountDelay={unmountDelay}>
+		<DelayRender ShouldRender={isVisible} UnmountDelay={2}>
 			<frame
-				AnchorPoint={new Vector2(0, 0)}
+				AnchorPoint={new Vector2(0.5, 0.5)}
 				BackgroundColor3={new Color3(1, 1, 1)}
 				BackgroundTransparency={0}
 				BorderSizePixel={0}
+				Event={{
+					MouseEnter: () => {
+						setIsHovered(true);
+					},
+					MouseLeave: () => {
+						setIsHovered(false);
+					},
+				}}
 				Position={popupPosition}
-				Size={UDim2.fromScale(0.635, 0.2)}
+				Size={size}
+				ZIndex={isHovered ? 2 : 1}
 			>
 				<uipadding PaddingRight={new UDim(0, rem(1))} />
+				<Button
+					key="trigger"
+					Native={{
+						BackgroundTransparency: 1,
+						Size: UDim2.fromScale(1, 1),
+						ZIndex: 10,
+					}}
+					onMouseDown={() => {
+						sizeMotion.spring(DEFAULT_SIZE, {
+							friction: 7,
+							mass: 1.2,
+							tension: 800,
+						});
+					}}
+					onMouseUp={() => {
+						sizeMotion.spring(new UDim2(0.635, rem(0.7), 0.2, rem(0.7)), {
+							friction: 10,
+							mass: 0.8,
+							tension: 600,
+						});
+					}}
+				/>
 				<textlabel
+					key="header"
 					AnchorPoint={new Vector2(1, 0.5)}
 					BackgroundTransparency={1}
 					FontFace={
@@ -74,6 +118,7 @@ export function HomeButton({
 					TextXAlignment={Enum.TextXAlignment.Right}
 				/>
 				<frame
+					key="holder"
 					BackgroundColor3={holderColor}
 					BorderSizePixel={0}
 					Position={UDim2.fromScale(0, 0)}
