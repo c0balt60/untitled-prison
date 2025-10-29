@@ -1,4 +1,5 @@
 import { useMotion } from "@rbxts/pretty-react-hooks";
+import type { ReactNode } from "@rbxts/react";
 import React, { useEffect, useState } from "@rbxts/react";
 import { setTimeout } from "@rbxts/set-timeout";
 
@@ -10,8 +11,10 @@ interface HomeButtonProps {
 	endPosition: UDim2;
 	holderColor?: Color3;
 	mountDelay?: number;
+	onClick?: (name: string) => void;
 	show?: boolean;
 	text?: string;
+
 	unmountDelay?: number;
 }
 
@@ -22,11 +25,14 @@ export function HomeButton({
 	endPosition,
 	holderColor,
 	mountDelay = 0,
+	onClick,
 	show = true,
 	text = "button",
+
 	unmountDelay = 0,
-}: Readonly<HomeButtonProps>): React.ReactNode {
+}: Readonly<HomeButtonProps>): ReactNode {
 	const rem = useRem();
+
 	const [isVisible, setIsVisible] = useState<boolean>(true);
 	const [isHovered, setIsHovered] = useState<boolean>(false);
 
@@ -92,6 +98,7 @@ export function HomeButton({
 						});
 					}}
 					onMouseUp={() => {
+						onClick?.(text);
 						sizeMotion.spring(new UDim2(0.635, rem(0.7), 0.2, rem(0.7)), {
 							friction: 10,
 							mass: 0.8,
