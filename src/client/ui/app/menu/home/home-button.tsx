@@ -118,7 +118,7 @@ export function HomeButton({
 						)
 					}
 					Position={UDim2.fromScale(1, 0.5)}
-					Size={UDim2.fromScale(0.25, 0.875)}
+					Size={UDim2.fromScale(0.65, 0.725)}
 					Text={text}
 					TextColor3={new Color3(0, 0, 0)}
 					TextScaled={true}

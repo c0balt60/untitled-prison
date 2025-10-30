@@ -60,10 +60,6 @@ export function HomeList({
 	const [isMenuVisible, setIsMenuVisible] = useState<boolean>(show);
 	const [isTeamVisible, setIsTeamVisible] = useState<boolean>(false);
 
-	context.playClicked = function () {
-		setIsTeamVisible(true);
-	};
-
 	const menuClicked = (name: string): void => {
 		switch (name) {
 			case "Play": {

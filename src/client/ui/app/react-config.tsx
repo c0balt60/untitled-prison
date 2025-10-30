@@ -26,7 +26,7 @@ export async function createApp(): Promise<void> {
 	const { mount } = await import("client/ui/functions");
 
 	mount({ key: "app", children: <App /> });
-	mount({ key: "loading-screen", children: <LoadingScreen /> });
+	mount({ key: "loading-screen", remOverride: 1, children: <LoadingScreen /> });
 }
 
 export const onRenderProfiler: ProfilerOnRenderCallback = (

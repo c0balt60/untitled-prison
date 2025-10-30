@@ -1,6 +1,7 @@
 import { useMotion } from "@rbxts/pretty-react-hooks";
 import type { ReactNode } from "@rbxts/react";
 import React, { useEffect, useState } from "@rbxts/react";
+import Ripple from "@rbxts/ripple";
 import { setTimeout } from "@rbxts/set-timeout";
 
 import { DelayRender } from "client/ui/components/delay-render";
@@ -29,8 +30,11 @@ export function TeamSelection({
 }: Readonly<TeamSelectionProps>): ReactNode {
 	const rem = useRem();
 	const [isVisible, setIsVisible] = useState<boolean>(show);
+	const [isHovered, setIsHovered] = useState<boolean>(false);
 
-	const [popupPosition, popupPositionMotion] = useMotion(OFF_POSITION);
+	const [popupPosition, popupPositionMotion] = useMotion<UDim2>(OFF_POSITION);
+	const [hoverBarEffect, hoverBarMotion] = useMotion<UDim2>(UDim2.fromScale(0.065, 1));
+	const [textColorEffect, textColorMotion] = useMotion<Color3>(new Color3(0, 0, 0));
 
 	useEffect(() => {
 		setIsVisible(!!show);
@@ -47,6 +51,14 @@ export function TeamSelection({
 			});
 		}, delay);
 	}, [popupPositionMotion, mountDelay, unmountDelay, show]);
+
+	useEffect(() => {
+		hoverBarMotion.spring(
+			UDim2.fromScale(isHovered ? 1 : 0.065, 1),
+			Ripple.config.spring.stiff,
+		);
+		textColorMotion.spring(isHovered ? new Color3(1, 1, 1) : new Color3(0, 0, 0));
+	});
 
 	return (
 		<DelayRender ShouldRender={isVisible} UnmountDelay={5}>
@@ -89,13 +101,19 @@ export function TeamSelection({
 						Position={UDim2.fromScale(0, 1.05)}
 						Size={UDim2.fromScale(1, 0.1)}
 					>
-						<uipadding PaddingLeft={new UDim(0.1, 0)} />
+						{/* <uipadding PaddingLeft={new UDim(0.065, 0)} /> */}
 						<Button
 							key="trigger"
 							Native={{
 								BackgroundTransparency: 1,
 								Size: UDim2.fromScale(1, 1),
 								ZIndex: 10,
+							}}
+							onMouseEnter={() => {
+								setIsHovered(true);
+							}}
+							onMouseLeave={() => {
+								setIsHovered(false);
 							}}
 							// onMouseDown={() => {
 							// 	sizeMotion.spring(DEFAULT_SIZE, {
@@ -121,20 +139,21 @@ export function TeamSelection({
 									Enum.FontStyle.Normal,
 								)
 							}
-							Position={UDim2.fromScale(0, 0.5)}
+							Position={UDim2.fromScale(0.065, 0.5)}
 							Size={UDim2.fromScale(0.25, 0.875)}
-							Text={text}
-							TextColor3={new Color3(0, 0, 0)}
+							Text="Select"
+							TextColor3={textColorEffect}
 							TextSize={rem(1.5)}
 							TextXAlignment={Enum.TextXAlignment.Left}
 						/>
 						<frame
-							key="holder"
+							key="bar"
 							AnchorPoint={new Vector2(1, 0)}
 							BackgroundColor3={holderColor}
 							BorderSizePixel={0}
 							Position={UDim2.fromScale(1, 0)}
-							Size={UDim2.fromScale(0.065, 1)}
+							Size={hoverBarEffect}
+							ZIndex={0}
 						/>
 					</frame>
 				</frame>
