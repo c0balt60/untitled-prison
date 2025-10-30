@@ -22,9 +22,11 @@ export async function createApp(): Promise<void> {
 	const React = await import("@rbxts/react");
 
 	const { App } = await import("client/ui/app/app");
+	const { LoadingScreen } = await import("client/ui/app/loading-screen");
 	const { mount } = await import("client/ui/functions");
 
 	mount({ key: "app", children: <App /> });
+	mount({ key: "loading-screen", children: <LoadingScreen /> });
 }
 
 export const onRenderProfiler: ProfilerOnRenderCallback = (
