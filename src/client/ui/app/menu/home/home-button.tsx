@@ -121,7 +121,7 @@ export function HomeButton({
 					Size={UDim2.fromScale(0.25, 0.875)}
 					Text={text}
 					TextColor3={new Color3(0, 0, 0)}
-					TextSize={rem(1.5)}
+					TextScaled={true}
 					TextXAlignment={Enum.TextXAlignment.Right}
 				/>
 				<frame

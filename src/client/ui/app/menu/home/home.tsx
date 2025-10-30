@@ -9,6 +9,7 @@ interface HomeProps {
 export function Home({ show = true }: Readonly<HomeProps>): React.ReactNode {
 	return (
 		<HomeList
+			key="HomeList"
 			menuButtons={[
 				{
 					barColor: Color3.fromRGB(9, 77, 149),

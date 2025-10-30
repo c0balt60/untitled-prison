@@ -61,6 +61,7 @@ export function TeamSelection({
 					key="main"
 					AnchorPoint={new Vector2(0.5, 0.5)}
 					BackgroundColor3={new Color3(1, 1, 1)}
+					BorderSizePixel={0}
 					Position={popupPosition}
 					Size={UDim2.fromScale(1, 1)}
 				>
@@ -71,7 +72,7 @@ export function TeamSelection({
 						FontFace={
 							new Font(
 								"rbxasset://fonts/families/Montserrat.json",
-								Enum.FontWeight.SemiBold,
+								Enum.FontWeight.Bold,
 								Enum.FontStyle.Normal,
 							)
 						}
@@ -84,6 +85,7 @@ export function TeamSelection({
 					<frame
 						key="button"
 						BackgroundColor3={new Color3(1, 1, 1)}
+						BorderSizePixel={0}
 						Position={UDim2.fromScale(0, 1.05)}
 						Size={UDim2.fromScale(1, 0.1)}
 					>
@@ -111,10 +113,11 @@ export function TeamSelection({
 							key="header"
 							AnchorPoint={new Vector2(0, 0.5)}
 							BackgroundTransparency={1}
+							BorderSizePixel={0}
 							FontFace={
 								new Font(
 									"rbxasset://fonts/families/Montserrat.json",
-									Enum.FontWeight.SemiBold,
+									Enum.FontWeight.Bold,
 									Enum.FontStyle.Normal,
 								)
 							}
